@@ -56,29 +56,29 @@
             // pictureBoxImageOne
             // 
             pictureBoxImageOne.BackColor = SystemColors.ControlLightLight;
-            pictureBoxImageOne.Location = new Point(15, 19);
-            pictureBoxImageOne.Margin = new Padding(10, 8, 10, 8);
+            pictureBoxImageOne.Location = new Point(6, 7);
+            pictureBoxImageOne.Margin = new Padding(4, 3, 4, 3);
             pictureBoxImageOne.Name = "pictureBoxImageOne";
-            pictureBoxImageOne.Size = new Size(1455, 971);
+            pictureBoxImageOne.Size = new Size(599, 355);
             pictureBoxImageOne.TabIndex = 102;
             pictureBoxImageOne.TabStop = false;
             // 
             // pictureBoxImageTwo
             // 
             pictureBoxImageTwo.BackColor = SystemColors.ControlLightLight;
-            pictureBoxImageTwo.Location = new Point(1529, 19);
-            pictureBoxImageTwo.Margin = new Padding(10, 8, 10, 8);
+            pictureBoxImageTwo.Location = new Point(630, 7);
+            pictureBoxImageTwo.Margin = new Padding(4, 3, 4, 3);
             pictureBoxImageTwo.Name = "pictureBoxImageTwo";
-            pictureBoxImageTwo.Size = new Size(1455, 971);
+            pictureBoxImageTwo.Size = new Size(599, 355);
             pictureBoxImageTwo.TabIndex = 105;
             pictureBoxImageTwo.TabStop = false;
             // 
             // buttonOpenImage
             // 
-            buttonOpenImage.Location = new Point(22, 1006);
-            buttonOpenImage.Margin = new Padding(10, 8, 10, 8);
+            buttonOpenImage.Location = new Point(9, 368);
+            buttonOpenImage.Margin = new Padding(4, 3, 4, 3);
             buttonOpenImage.Name = "buttonOpenImage";
-            buttonOpenImage.Size = new Size(252, 74);
+            buttonOpenImage.Size = new Size(104, 27);
             buttonOpenImage.TabIndex = 106;
             buttonOpenImage.Text = "Abrir Imagem";
             buttonOpenImage.UseVisualStyleBackColor = true;
@@ -86,10 +86,10 @@
             // 
             // buttonClearImage
             // 
-            buttonClearImage.Location = new Point(22, 1096);
-            buttonClearImage.Margin = new Padding(10, 8, 10, 8);
+            buttonClearImage.Location = new Point(9, 401);
+            buttonClearImage.Margin = new Padding(4, 3, 4, 3);
             buttonClearImage.Name = "buttonClearImage";
-            buttonClearImage.Size = new Size(252, 74);
+            buttonClearImage.Size = new Size(104, 27);
             buttonClearImage.TabIndex = 107;
             buttonClearImage.Text = "Limpar";
             buttonClearImage.UseVisualStyleBackColor = true;
@@ -97,10 +97,10 @@
             // 
             // buttonConvertToGrayWithoutDMA
             // 
-            buttonConvertToGrayWithoutDMA.Location = new Point(291, 1007);
-            buttonConvertToGrayWithoutDMA.Margin = new Padding(10, 8, 10, 8);
+            buttonConvertToGrayWithoutDMA.Location = new Point(120, 368);
+            buttonConvertToGrayWithoutDMA.Margin = new Padding(4, 3, 4, 3);
             buttonConvertToGrayWithoutDMA.Name = "buttonConvertToGrayWithoutDMA";
-            buttonConvertToGrayWithoutDMA.Size = new Size(450, 74);
+            buttonConvertToGrayWithoutDMA.Size = new Size(185, 27);
             buttonConvertToGrayWithoutDMA.TabIndex = 108;
             buttonConvertToGrayWithoutDMA.Text = "Luminância sem DMA";
             buttonConvertToGrayWithoutDMA.UseVisualStyleBackColor = true;
@@ -108,10 +108,10 @@
             // 
             // buttonConvertToGrayWithDMA
             // 
-            buttonConvertToGrayWithDMA.Location = new Point(291, 1097);
-            buttonConvertToGrayWithDMA.Margin = new Padding(10, 8, 10, 8);
+            buttonConvertToGrayWithDMA.Location = new Point(120, 401);
+            buttonConvertToGrayWithDMA.Margin = new Padding(4, 3, 4, 3);
             buttonConvertToGrayWithDMA.Name = "buttonConvertToGrayWithDMA";
-            buttonConvertToGrayWithDMA.Size = new Size(450, 74);
+            buttonConvertToGrayWithDMA.Size = new Size(185, 27);
             buttonConvertToGrayWithDMA.TabIndex = 109;
             buttonConvertToGrayWithDMA.Text = "Luminância com DMA";
             buttonConvertToGrayWithDMA.UseVisualStyleBackColor = true;
@@ -119,10 +119,10 @@
             // 
             // buttonConvertToNegativeWithDMA
             // 
-            buttonConvertToNegativeWithDMA.Location = new Point(291, 1276);
-            buttonConvertToNegativeWithDMA.Margin = new Padding(10, 8, 10, 8);
+            buttonConvertToNegativeWithDMA.Location = new Point(120, 467);
+            buttonConvertToNegativeWithDMA.Margin = new Padding(4, 3, 4, 3);
             buttonConvertToNegativeWithDMA.Name = "buttonConvertToNegativeWithDMA";
-            buttonConvertToNegativeWithDMA.Size = new Size(450, 71);
+            buttonConvertToNegativeWithDMA.Size = new Size(185, 26);
             buttonConvertToNegativeWithDMA.TabIndex = 111;
             buttonConvertToNegativeWithDMA.Text = "Negativo com DMA";
             buttonConvertToNegativeWithDMA.UseVisualStyleBackColor = true;
@@ -130,10 +130,10 @@
             // 
             // buttonConvertToNegativeWithoutDMA
             // 
-            buttonConvertToNegativeWithoutDMA.Location = new Point(291, 1187);
-            buttonConvertToNegativeWithoutDMA.Margin = new Padding(10, 8, 10, 8);
+            buttonConvertToNegativeWithoutDMA.Location = new Point(120, 434);
+            buttonConvertToNegativeWithoutDMA.Margin = new Padding(4, 3, 4, 3);
             buttonConvertToNegativeWithoutDMA.Name = "buttonConvertToNegativeWithoutDMA";
-            buttonConvertToNegativeWithoutDMA.Size = new Size(450, 71);
+            buttonConvertToNegativeWithoutDMA.Size = new Size(185, 26);
             buttonConvertToNegativeWithoutDMA.TabIndex = 110;
             buttonConvertToNegativeWithoutDMA.Text = "Negativo sem DMA";
             buttonConvertToNegativeWithoutDMA.UseVisualStyleBackColor = true;
@@ -141,10 +141,10 @@
             // 
             // buttonMirrorVerticallyWithDMA
             // 
-            buttonMirrorVerticallyWithDMA.Location = new Point(761, 1097);
-            buttonMirrorVerticallyWithDMA.Margin = new Padding(10, 8, 10, 8);
+            buttonMirrorVerticallyWithDMA.Location = new Point(313, 401);
+            buttonMirrorVerticallyWithDMA.Margin = new Padding(4, 3, 4, 3);
             buttonMirrorVerticallyWithDMA.Name = "buttonMirrorVerticallyWithDMA";
-            buttonMirrorVerticallyWithDMA.Size = new Size(567, 74);
+            buttonMirrorVerticallyWithDMA.Size = new Size(233, 27);
             buttonMirrorVerticallyWithDMA.TabIndex = 110;
             buttonMirrorVerticallyWithDMA.Text = "Espelhar verticalmente com DMA";
             buttonMirrorVerticallyWithDMA.UseVisualStyleBackColor = true;
@@ -152,10 +152,10 @@
             // 
             // buttonMirrorVerticallyWithoutDMA
             // 
-            buttonMirrorVerticallyWithoutDMA.Location = new Point(761, 1007);
-            buttonMirrorVerticallyWithoutDMA.Margin = new Padding(10, 8, 10, 8);
+            buttonMirrorVerticallyWithoutDMA.Location = new Point(313, 368);
+            buttonMirrorVerticallyWithoutDMA.Margin = new Padding(4, 3, 4, 3);
             buttonMirrorVerticallyWithoutDMA.Name = "buttonMirrorVerticallyWithoutDMA";
-            buttonMirrorVerticallyWithoutDMA.Size = new Size(567, 74);
+            buttonMirrorVerticallyWithoutDMA.Size = new Size(233, 27);
             buttonMirrorVerticallyWithoutDMA.TabIndex = 110;
             buttonMirrorVerticallyWithoutDMA.Text = "Espelhar verticalmente sem DMA";
             buttonMirrorVerticallyWithoutDMA.UseVisualStyleBackColor = true;
@@ -163,10 +163,10 @@
             // 
             // buttonMirrorHorizontallyWithDMA
             // 
-            buttonMirrorHorizontallyWithDMA.Location = new Point(761, 1273);
-            buttonMirrorHorizontallyWithDMA.Margin = new Padding(10, 8, 10, 8);
+            buttonMirrorHorizontallyWithDMA.Location = new Point(313, 466);
+            buttonMirrorHorizontallyWithDMA.Margin = new Padding(4, 3, 4, 3);
             buttonMirrorHorizontallyWithDMA.Name = "buttonMirrorHorizontallyWithDMA";
-            buttonMirrorHorizontallyWithDMA.Size = new Size(567, 74);
+            buttonMirrorHorizontallyWithDMA.Size = new Size(233, 27);
             buttonMirrorHorizontallyWithDMA.TabIndex = 110;
             buttonMirrorHorizontallyWithDMA.Text = "Espelhar horizontalmente com DMA";
             buttonMirrorHorizontallyWithDMA.UseVisualStyleBackColor = true;
@@ -174,10 +174,10 @@
             // 
             // buttonMirrorHorizontallyWithoutDMA
             // 
-            buttonMirrorHorizontallyWithoutDMA.Location = new Point(761, 1184);
-            buttonMirrorHorizontallyWithoutDMA.Margin = new Padding(10, 8, 10, 8);
+            buttonMirrorHorizontallyWithoutDMA.Location = new Point(313, 433);
+            buttonMirrorHorizontallyWithoutDMA.Margin = new Padding(4, 3, 4, 3);
             buttonMirrorHorizontallyWithoutDMA.Name = "buttonMirrorHorizontallyWithoutDMA";
-            buttonMirrorHorizontallyWithoutDMA.Size = new Size(567, 74);
+            buttonMirrorHorizontallyWithoutDMA.Size = new Size(233, 27);
             buttonMirrorHorizontallyWithoutDMA.TabIndex = 110;
             buttonMirrorHorizontallyWithoutDMA.Text = "Espelhar horizontalmente sem DMA";
             buttonMirrorHorizontallyWithoutDMA.UseVisualStyleBackColor = true;
@@ -185,10 +185,10 @@
             // 
             // buttonConvertToBlackAndWhiteWithDMA
             // 
-            buttonConvertToBlackAndWhiteWithDMA.Location = new Point(291, 1457);
-            buttonConvertToBlackAndWhiteWithDMA.Margin = new Padding(10, 8, 10, 8);
+            buttonConvertToBlackAndWhiteWithDMA.Location = new Point(120, 533);
+            buttonConvertToBlackAndWhiteWithDMA.Margin = new Padding(4, 3, 4, 3);
             buttonConvertToBlackAndWhiteWithDMA.Name = "buttonConvertToBlackAndWhiteWithDMA";
-            buttonConvertToBlackAndWhiteWithDMA.Size = new Size(450, 66);
+            buttonConvertToBlackAndWhiteWithDMA.Size = new Size(185, 24);
             buttonConvertToBlackAndWhiteWithDMA.TabIndex = 110;
             buttonConvertToBlackAndWhiteWithDMA.Text = "Preto e Branco com DMA";
             buttonConvertToBlackAndWhiteWithDMA.UseVisualStyleBackColor = true;
@@ -196,10 +196,10 @@
             // 
             // buttonConvertToBlackAndWhiteWithoutDMA
             // 
-            buttonConvertToBlackAndWhiteWithoutDMA.Location = new Point(291, 1363);
-            buttonConvertToBlackAndWhiteWithoutDMA.Margin = new Padding(10, 8, 10, 8);
+            buttonConvertToBlackAndWhiteWithoutDMA.Location = new Point(120, 499);
+            buttonConvertToBlackAndWhiteWithoutDMA.Margin = new Padding(4, 3, 4, 3);
             buttonConvertToBlackAndWhiteWithoutDMA.Name = "buttonConvertToBlackAndWhiteWithoutDMA";
-            buttonConvertToBlackAndWhiteWithoutDMA.Size = new Size(450, 74);
+            buttonConvertToBlackAndWhiteWithoutDMA.Size = new Size(185, 27);
             buttonConvertToBlackAndWhiteWithoutDMA.TabIndex = 110;
             buttonConvertToBlackAndWhiteWithoutDMA.Text = "Preto e Branco sem DMA";
             buttonConvertToBlackAndWhiteWithoutDMA.UseVisualStyleBackColor = true;
@@ -207,10 +207,10 @@
             // 
             // buttonRotateNinetyDegreeLeftWithDMA
             // 
-            buttonRotateNinetyDegreeLeftWithDMA.Location = new Point(1348, 1276);
-            buttonRotateNinetyDegreeLeftWithDMA.Margin = new Padding(10, 8, 10, 8);
+            buttonRotateNinetyDegreeLeftWithDMA.Location = new Point(555, 467);
+            buttonRotateNinetyDegreeLeftWithDMA.Margin = new Padding(4, 3, 4, 3);
             buttonRotateNinetyDegreeLeftWithDMA.Name = "buttonRotateNinetyDegreeLeftWithDMA";
-            buttonRotateNinetyDegreeLeftWithDMA.Size = new Size(605, 71);
+            buttonRotateNinetyDegreeLeftWithDMA.Size = new Size(249, 26);
             buttonRotateNinetyDegreeLeftWithDMA.TabIndex = 110;
             buttonRotateNinetyDegreeLeftWithDMA.Text = "Rotacionar 90 graus a esquerda com DMA";
             buttonRotateNinetyDegreeLeftWithDMA.UseVisualStyleBackColor = true;
@@ -218,10 +218,10 @@
             // 
             // buttonRotateNinetyDegreeLeftWithoutDMA
             // 
-            buttonRotateNinetyDegreeLeftWithoutDMA.Location = new Point(1348, 1184);
-            buttonRotateNinetyDegreeLeftWithoutDMA.Margin = new Padding(10, 8, 10, 8);
+            buttonRotateNinetyDegreeLeftWithoutDMA.Location = new Point(555, 433);
+            buttonRotateNinetyDegreeLeftWithoutDMA.Margin = new Padding(4, 3, 4, 3);
             buttonRotateNinetyDegreeLeftWithoutDMA.Name = "buttonRotateNinetyDegreeLeftWithoutDMA";
-            buttonRotateNinetyDegreeLeftWithoutDMA.Size = new Size(605, 74);
+            buttonRotateNinetyDegreeLeftWithoutDMA.Size = new Size(249, 27);
             buttonRotateNinetyDegreeLeftWithoutDMA.TabIndex = 110;
             buttonRotateNinetyDegreeLeftWithoutDMA.Text = "Rotacionar 90 graus a esquerda sem DMA";
             buttonRotateNinetyDegreeLeftWithoutDMA.UseVisualStyleBackColor = true;
@@ -229,10 +229,10 @@
             // 
             // buttonRotateNinetyDegreeRightWithDMA
             // 
-            buttonRotateNinetyDegreeRightWithDMA.Location = new Point(1348, 1097);
-            buttonRotateNinetyDegreeRightWithDMA.Margin = new Padding(10, 8, 10, 8);
+            buttonRotateNinetyDegreeRightWithDMA.Location = new Point(555, 401);
+            buttonRotateNinetyDegreeRightWithDMA.Margin = new Padding(4, 3, 4, 3);
             buttonRotateNinetyDegreeRightWithDMA.Name = "buttonRotateNinetyDegreeRightWithDMA";
-            buttonRotateNinetyDegreeRightWithDMA.Size = new Size(605, 74);
+            buttonRotateNinetyDegreeRightWithDMA.Size = new Size(249, 27);
             buttonRotateNinetyDegreeRightWithDMA.TabIndex = 110;
             buttonRotateNinetyDegreeRightWithDMA.Text = "Rotacionar 90 graus a direita com DMA";
             buttonRotateNinetyDegreeRightWithDMA.UseVisualStyleBackColor = true;
@@ -240,10 +240,10 @@
             // 
             // buttonRotateNinetyDegreeRightWithoutDMA
             // 
-            buttonRotateNinetyDegreeRightWithoutDMA.Location = new Point(1348, 1007);
-            buttonRotateNinetyDegreeRightWithoutDMA.Margin = new Padding(10, 8, 10, 8);
+            buttonRotateNinetyDegreeRightWithoutDMA.Location = new Point(555, 368);
+            buttonRotateNinetyDegreeRightWithoutDMA.Margin = new Padding(4, 3, 4, 3);
             buttonRotateNinetyDegreeRightWithoutDMA.Name = "buttonRotateNinetyDegreeRightWithoutDMA";
-            buttonRotateNinetyDegreeRightWithoutDMA.Size = new Size(605, 74);
+            buttonRotateNinetyDegreeRightWithoutDMA.Size = new Size(249, 27);
             buttonRotateNinetyDegreeRightWithoutDMA.TabIndex = 110;
             buttonRotateNinetyDegreeRightWithoutDMA.Text = "Rotacionar 90 graus a direita sem DMA";
             buttonRotateNinetyDegreeRightWithoutDMA.UseVisualStyleBackColor = true;
@@ -251,10 +251,10 @@
             // 
             // buttonInvertRedAndBlueWithDMA
             // 
-            buttonInvertRedAndBlueWithDMA.Location = new Point(761, 1459);
-            buttonInvertRedAndBlueWithDMA.Margin = new Padding(10, 8, 10, 8);
+            buttonInvertRedAndBlueWithDMA.Location = new Point(313, 534);
+            buttonInvertRedAndBlueWithDMA.Margin = new Padding(4, 3, 4, 3);
             buttonInvertRedAndBlueWithDMA.Name = "buttonInvertRedAndBlueWithDMA";
-            buttonInvertRedAndBlueWithDMA.Size = new Size(567, 64);
+            buttonInvertRedAndBlueWithDMA.Size = new Size(233, 23);
             buttonInvertRedAndBlueWithDMA.TabIndex = 110;
             buttonInvertRedAndBlueWithDMA.Text = "Inverter vermelho e azul com DMA";
             buttonInvertRedAndBlueWithDMA.UseVisualStyleBackColor = true;
@@ -262,10 +262,10 @@
             // 
             // buttonInvertRedAndBlueWithoutDMA
             // 
-            buttonInvertRedAndBlueWithoutDMA.Location = new Point(761, 1363);
-            buttonInvertRedAndBlueWithoutDMA.Margin = new Padding(10, 8, 10, 8);
+            buttonInvertRedAndBlueWithoutDMA.Location = new Point(313, 499);
+            buttonInvertRedAndBlueWithoutDMA.Margin = new Padding(4, 3, 4, 3);
             buttonInvertRedAndBlueWithoutDMA.Name = "buttonInvertRedAndBlueWithoutDMA";
-            buttonInvertRedAndBlueWithoutDMA.Size = new Size(567, 74);
+            buttonInvertRedAndBlueWithoutDMA.Size = new Size(233, 27);
             buttonInvertRedAndBlueWithoutDMA.TabIndex = 110;
             buttonInvertRedAndBlueWithoutDMA.Text = "Inverter vermelho e azul sem DMA";
             buttonInvertRedAndBlueWithoutDMA.UseVisualStyleBackColor = true;
@@ -273,9 +273,9 @@
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(17F, 41F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(3028, 1836);
+            ClientSize = new Size(1266, 595);
             Controls.Add(buttonInvertRedAndBlueWithDMA);
             Controls.Add(buttonInvertRedAndBlueWithoutDMA);
             Controls.Add(buttonRotateNinetyDegreeRightWithoutDMA);
@@ -296,7 +296,7 @@
             Controls.Add(buttonOpenImage);
             Controls.Add(pictureBoxImageTwo);
             Controls.Add(pictureBoxImageOne);
-            Margin = new Padding(10, 8, 10, 8);
+            Margin = new Padding(4, 3, 4, 3);
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Formulário Principal";
