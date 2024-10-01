@@ -25,12 +25,10 @@ namespace image_processing.methods
 
             private static int BitToInt(int[] bits, int layer)
             {
-                if (bits[layer] == 1) return 255;
-
-                return 0;
+                return bits[layer] == 1 ? 255 : 0;
             }
 
-            private static Color GetPixel(Color color, int layer)
+            private static Color GetPixelColor(Color color, int layer)
             {
                 int[] a = GetColorBits(color.A);
                 int[] r = GetColorBits(color.R);
@@ -168,7 +166,7 @@ namespace image_processing.methods
                     {
                         for (int y = 0; y < height - 1; y++)
                         {
-                            convertedImage.SetPixel(x, y, GetPixel(image.GetPixel(x, y), i));
+                            convertedImage.SetPixel(x, y, GetPixelColor(image.GetPixel(x, y), i));
                         }
                     }
                     convertedImage.Save("C:\\Users\\VITOR\\Documents\\image-processing\\image-processing\\assets\\images\\bits-slicing\\slicing" +(i) + ".png");
