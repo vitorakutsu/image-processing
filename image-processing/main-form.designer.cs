@@ -87,7 +87,10 @@
                 CreateButton("Reduzir dinamico", 10, 140, ActionToReduceByDinamicValue),
             };
 
-            buttonsWithDMA_SecondList = new Button[] { };
+            buttonsWithDMA_SecondList = new Button[] 
+            {
+                CreateButton("Conectividade 4", 10, 20, ActionToConnectivity4WithDMA),
+            };
 
             buttonsWithoutDMA_ThirdList = new Button[]
             {

@@ -236,5 +236,14 @@ namespace image_processing
         {
             ApplyFilter(ImageFundamentals.WithDMA.InvertRedToBlue);
         }
+
+        private void ActionToConnectivity4WithDMA(object sender, EventArgs e) 
+        {
+            Bitmap convertedImage = new Bitmap(image);
+            imageBitmap = (Bitmap)image;
+            ImageRepresentation.WithDMA.Connectivity4(imageBitmap);
+            pictureBoxImageTwo.Image = imageBitmap;
+        }
+
     }
 }

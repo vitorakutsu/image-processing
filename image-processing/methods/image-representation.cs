@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,115 @@ namespace image_processing.methods
     {
         public class WithDMA
         {
+            public static void Connectivity4(Bitmap image)
+            {
+                int width = image.Width;
+                int height = image.Height;
+                BitmapData bitmapImage = image.LockBits(new Rectangle(0, 0, width, height),
+                    ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
 
+                int bytesPerPixel = 3;
+                int stride = bitmapImage.Stride;
+                int padding = stride - (width * bytesPerPixel);
+                int color = 195;
+
+                List<(int x, int y)> toBeMarked = new List<(int x, int y)>();
+
+                unsafe
+                {
+                    byte* src = (byte*)bitmapImage.Scan0.ToPointer();
+                    byte* scan = (byte*)bitmapImage.Scan0.ToPointer();
+                    byte* aux;
+                    int r, g, b;
+                    int i, j;
+
+                    for(int y = 1; y < height - 1; y++)
+                    {
+                        for (int x = 1; x < width - 1; x++)
+                        {
+                            b = *(src)++;
+                            g = *(src)++;
+                            r = *(src)++;
+
+                            if(r == 0 && g == 0 && b == 0)
+                            {
+                                toBeMarked.Add((x, y));
+
+                                while(toBeMarked.Count > 0)
+                                {
+                                    (i, j) = toBeMarked[0];
+                                    toBeMarked.RemoveAt(0);
+
+                                    aux = GetPosition(i, j, scan, stride);
+
+                                    *(aux)++ = (byte)color;
+                                    *(aux)++ = (byte)color;
+                                    *(aux)++ = (byte)color;
+
+                                    // Buscar vizinho da direita
+                                    aux = GetPosition(i + 1, j, scan, stride);
+
+                                    b = *(aux)++;
+                                    g = *(aux)++;
+                                    r = *(aux)++;
+
+                                    if(r == 0 && g == 0 && b == 0 && !toBeMarked.Contains((i + 1, j)))
+                                    {
+                                        toBeMarked.Add((i + 1, j));
+                                    }
+
+                                    // Buscar vizinho da esquerda
+                                    aux = GetPosition(i - 1, j, scan, stride);
+
+                                    b = *(aux)++;
+                                    g = *(aux)++;
+                                    r = *(aux)++;
+
+                                    if (r == 0 && g == 0 && b == 0 && !toBeMarked.Contains((i - 1, j)))
+                                    {
+                                        toBeMarked.Add((i - 1, j));
+                                    }
+
+                                    // Buscar vizinho de cima
+                                    aux = GetPosition(i, j - 1, scan, stride);
+
+                                    b = *(aux)++;
+                                    g = *(aux)++;
+                                    r = *(aux)++;
+
+                                    if (r == 0 && g == 0 && b == 0 && !toBeMarked.Contains((i, j - 1)))
+                                    {
+                                        toBeMarked.Add((i, j - 1));
+                                    }
+
+                                    // Buscar vizinho de baixo
+                                    aux = GetPosition(i, j + 1, scan, stride);
+
+                                    b = *(aux)++;
+                                    g = *(aux)++;
+                                    r = *(aux)++;
+
+                                    if (r == 0 && g == 0 && b == 0 && !toBeMarked.Contains((i, j + 1)))
+                                    {
+                                        toBeMarked.Add((i, j + 1));
+                                    }
+                                }
+
+                                color -= 25;
+                            }
+                        }
+
+                        src += padding;
+                    }
+                }
+
+                image.UnlockBits(bitmapImage);
+            }
+
+            private static unsafe byte* GetPosition(int x, int y, byte* Scan, int Stride)
+            {
+                return Scan + (x * 3) + y * Stride;
+            }
         }
 
         public class WithoutDMA
