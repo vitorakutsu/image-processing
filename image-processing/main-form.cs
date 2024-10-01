@@ -1,8 +1,10 @@
+using image_processing.methods;
+using System.Drawing.Imaging;
+
 namespace image_processing
 {
     public partial class MainForm : Form
     {
-
         private Image image;
         private Bitmap imageBitmap;
 
@@ -11,7 +13,7 @@ namespace image_processing
             InitializeComponent();
         }
 
-        private void actionToOpenImage(object sender, EventArgs e)
+        private void ActionToOpenImage(object sender, EventArgs e)
         {
             openFileDialog.FileName = "";
             openFileDialog.Filter = "Images as (*.jpg;*.gif;*.bmp;*.png)|*.jpg;*.gif;*.bmp;*.png";
@@ -23,143 +25,216 @@ namespace image_processing
             }
         }
 
-        private void actionToClearImage(object sender, EventArgs e)
+        private void ActionToClearImage(object sender, EventArgs e)
         {
             pictureBoxImageOne.Image = pictureBoxImageTwo.Image = null;
         }
 
-        private void actionToConvertToGrayWithoutDMA(object sender, EventArgs e)
+        private void ActionToSaveImage(object sender, EventArgs e)
+        {
+            if (pictureBoxImageTwo.Image == null)
+            {
+                MessageBox.Show("Nenhuma imagem convertida disponível para salvar.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "PNG Image|*.png|JPEG Image|*.jpg|Bitmap Image|*.bmp|GIF Image|*.gif";
+                saveFileDialog.Title = "Save Image File";
+                saveFileDialog.FileName = "converted_image";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string fileExtension = System.IO.Path.GetExtension(saveFileDialog.FileName).ToLower();
+
+                    ImageFormat format = ImageFormat.Png;
+                    if (fileExtension == ".jpg" || fileExtension == ".jpeg")
+                    {
+                        format = ImageFormat.Jpeg;
+                    }
+                    else if (fileExtension == ".bmp")
+                    {
+                        format = ImageFormat.Bmp;
+                    }
+                    else if (fileExtension == ".gif")
+                    {
+                        format = ImageFormat.Gif;
+                    }
+
+                    pictureBoxImageTwo.Image.Save(saveFileDialog.FileName, format);
+                    MessageBox.Show("Imagem salva com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void ApplyFilter(Action<Bitmap, Bitmap> filterMethod)
         {
             Bitmap convertedImage = new Bitmap(image);
             imageBitmap = (Bitmap)image;
-            filters.convertToGray_withoutDMA(imageBitmap, convertedImage);
+            filterMethod(imageBitmap, convertedImage);
             pictureBoxImageTwo.Image = convertedImage;
         }
 
-        private void actionToConvertToGrayWithDMA(object sender, EventArgs e)
+        private void ActionToConvertToGrayWithoutDMA(object sender, EventArgs e)
         {
-            Bitmap convertedImage = new Bitmap(image);
+            ApplyFilter(ImageFundamentals.WithoutDMA.ConvertToGray);
+        }
+
+        private void ActionToConvertToNegativeWithoutDMA(object sender, EventArgs e)
+        {
+            ApplyFilter(ImageFundamentals.WithoutDMA.ConvertToNegative);
+        }
+
+        private void ActionToMirrorVerticallyWithoutDMA(object sender, EventArgs e)
+        {
+            ApplyFilter(ImageFundamentals.WithoutDMA.MirrorVertically);
+        }
+        
+        private void ActionToMirrorHorizontallyWithoutDMA(object sender, EventArgs e)
+        {
+            ApplyFilter(ImageFundamentals.WithoutDMA.MirrorHorizontally);
+        }
+
+        private void ActionToConvertBlackAndWhiteWithoutDMA(object sender, EventArgs e)
+        {
+            ApplyFilter(ImageFundamentals.WithoutDMA.ConvertToBlackAndWhite);
+        }
+
+        private void ActionToRotateNinetyDegreeLeftWithoutDMA(object sender, EventArgs e)
+        {
+            ApplyFilter((bmp, converted) =>
+            {
+                ImageFundamentals.WithoutDMA.RotateNinetyDegreeLeft(bmp, converted);
+                image = converted;
+            });
+        }
+
+        private void ActionToRotateNinetyDegreeRightWithoutDMA(object sender, EventArgs e)
+        {
+            ApplyFilter((bmp, converted) =>
+            {
+                ImageFundamentals.WithoutDMA.RotateNinetyDegreeRight(bmp, converted);
+                image = converted;
+            });
+        }
+
+        private void ActionToInvertRedAndBlueWithoutDMA(object sender, EventArgs e)
+        {
+            ApplyFilter(ImageFundamentals.WithoutDMA.InvertRedToBlue);
+        }
+
+        private void ActionToConnectivity4WithoutDMA(object sender, EventArgs e)
+        {
+            ApplyFilter(ImageRepresentation.WithoutDMA.Connectivity4);
+        }
+
+        private void ActionToConnectivity8WithoutDMA(object sender, EventArgs e)
+        {
+            ApplyFilter(ImageRepresentation.WithoutDMA.Connectivity8);
+        }
+
+        private void ActionToReduceByHalf(object sender, EventArgs e)
+        {
+            Bitmap convertedImage = new Bitmap(image.Width / 2, image.Height / 2);
             imageBitmap = (Bitmap)image;
-            filters.convertToGray_withDMA(imageBitmap, convertedImage);
+            ImageRepresentation.WithoutDMA.ReduceByHalf(imageBitmap, convertedImage);
             pictureBoxImageTwo.Image = convertedImage;
         }
 
-        private void actionToConvertToNegativeWithoutDMA(object sender, EventArgs e)
+        private void ActionToReduceByDinamicValue(object sender, EventArgs e)
         {
-            Bitmap convertedImage = new Bitmap(image);
+            Bitmap convertedImage = new Bitmap(image.Width / 4, image.Height / 4);
             imageBitmap = (Bitmap)image;
-            filters.convertToNegative_withoutDMA(imageBitmap, convertedImage);
+            ImageRepresentation.WithoutDMA.ReduceByDinamicValue(imageBitmap, convertedImage, 4);
             pictureBoxImageTwo.Image = convertedImage;
         }
 
-        private void actionToConvertToNegativeWithDMA(object sender, EventArgs e)
+        private void ActionToBitPlaneSlicingWithoutDMA(object sender, EventArgs e)
         {
             Bitmap convertedImage = new Bitmap(image);
             imageBitmap = (Bitmap)image;
-            filters.convertToNegative_withDMA(imageBitmap, convertedImage);
+            ImageHighlight.WithoutDMA.BitPlaneSlicing(imageBitmap, convertedImage);
             pictureBoxImageTwo.Image = convertedImage;
         }
 
-        private void actionToMirrorVerticallyWithoutDMA(object sender, EventArgs e)
+        private void ActionToHistogramEqualizationWithoutDMA(object sender, EventArgs e)
         {
             Bitmap convertedImage = new Bitmap(image);
             imageBitmap = (Bitmap)image;
-            filters.mirrorVertically_withoutDMA(imageBitmap, convertedImage);
+            ImageHighlight.WithoutDMA.HistogramEqualization(imageBitmap, convertedImage);
             pictureBoxImageTwo.Image = convertedImage;
         }
 
-        private void actionToMirrorVerticallyWithDMA(object sender, EventArgs e)
+        private void ActionToFilterSmoothingByAverageWithoutDMA(object sender, EventArgs e)
         {
-            Bitmap convertedImage = new Bitmap(image);
+            Bitmap convertedImage = new Bitmap(image.Width - 2, image.Height - 2);
             imageBitmap = (Bitmap)image;
-            filters.mirrorVertically_withDMA(imageBitmap, convertedImage);
+            ImageHighlight.WithoutDMA.FilterSmoothingByAverage(imageBitmap, convertedImage);
             pictureBoxImageTwo.Image = convertedImage;
         }
 
-        private void actionToMirrorHorizontallyWithoutDMA(object sender, EventArgs e)
+        private void ActionToFilterSmoothingByMedianWithoutDMA(object sender, EventArgs e)
         {
-            Bitmap convertedImage = new Bitmap(image);
+            Bitmap convertedImage = new Bitmap(image.Width - 2, image.Height - 2);
             imageBitmap = (Bitmap)image;
-            filters.mirrorHorizontally_withoutDMA(imageBitmap, convertedImage);
+            ImageHighlight.WithoutDMA.FilterSmoothingByMedian(imageBitmap, convertedImage);
             pictureBoxImageTwo.Image = convertedImage;
         }
 
-        private void actionToMirrorHorizontallyWithDMA(object sender, EventArgs e)
-        {
-            Bitmap convertedImage = new Bitmap(image);
+        private void ActionToFilterSmoothingByKNeighboursWithoutDMA(object sender, EventArgs e) {
+            Bitmap convertedImage = new Bitmap(image.Width - 2, image.Height - 2);
             imageBitmap = (Bitmap)image;
-            filters.mirrorHorizontally_withDMA(imageBitmap, convertedImage);
+            ImageHighlight.WithoutDMA.FilterSmoothingByKNeighbours(imageBitmap, convertedImage);
             pictureBoxImageTwo.Image = convertedImage;
         }
 
-        private void actionToConvertBlackAndWhiteWithoutDMA(object sender, EventArgs e)
+        private void ActionToConvertToGrayWithDMA(object sender, EventArgs e)
         {
-            Bitmap convertedImage = new Bitmap(image);
-            imageBitmap = (Bitmap)image;
-            filters.convertToBlackAndWhite_withoutDMA(imageBitmap, convertedImage);
-            pictureBoxImageTwo.Image = convertedImage;
+            ApplyFilter(ImageFundamentals.WithDMA.ConvertToGray);
         }
 
-        private void actionToConvertBlackAndWhiteWithDMA(object sender, EventArgs e)
+        private void ActionToConvertToNegativeWithDMA(object sender, EventArgs e)
         {
-            Bitmap convertedImage = new Bitmap(image);
-            imageBitmap = (Bitmap)image;
-            filters.convertToBlackAndWhite_withDMA(imageBitmap, convertedImage);
-            pictureBoxImageTwo.Image = convertedImage;
+            ApplyFilter(ImageFundamentals.WithDMA.ConvertToNegative);
         }
 
-        private void actionToRotateNinetyDegreeLeftWithoutDMA(object sender, EventArgs e)
+        private void ActionToMirrorVerticallyWithDMA(object sender, EventArgs e)
         {
-            Bitmap convertedImage = new Bitmap(image);
-            imageBitmap = (Bitmap)image;
-            filters.rotateNinetyDegreeLeft_withoutDMA(imageBitmap, convertedImage);
-            image = convertedImage;
-            pictureBoxImageTwo.Image = convertedImage;
+            ApplyFilter(ImageFundamentals.WithDMA.MirrorVertically);
         }
 
-        private void actionToRotateNinetyDegreeLeftWithDMA(object sender, EventArgs e)
+        private void ActionToMirrorHorizontallyWithDMA(object sender, EventArgs e)
         {
-            Bitmap convertedImage = new Bitmap(image);
-            imageBitmap = (Bitmap)image;
-            filters.rotateNinetyDegreeLeft_withDMA(imageBitmap, convertedImage);
-            image = convertedImage;
-            pictureBoxImageTwo.Image = convertedImage;
+            ApplyFilter(ImageFundamentals.WithDMA.MirrorHorizontally);
         }
 
-        private void actionToRotateNinetyDegreeRightWithoutDMA(object sender, EventArgs e)
+        private void ActionToConvertBlackAndWhiteWithDMA(object sender, EventArgs e)
         {
-            Bitmap convertedImage = new Bitmap(image);
-            imageBitmap = (Bitmap)image;
-            filters.rotateNinetyDegreeRight_withoutDMA(imageBitmap, convertedImage);
-            image = convertedImage;
-            pictureBoxImageTwo.Image = convertedImage;
+            ApplyFilter(ImageFundamentals.WithDMA.ConvertToBlackAndWhite);
         }
 
-        private void actionToRotateNinetyDegreeRightWithDMA(object sender, EventArgs e)
+        private void ActionToRotateNinetyDegreeLeftWithDMA(object sender, EventArgs e)
         {
-            Bitmap convertedImage = new Bitmap(image);
-            imageBitmap = (Bitmap)image;
-            filters.rotateNinetyDegreeRight_withDMA(imageBitmap, convertedImage);
-            image = convertedImage;
-            pictureBoxImageTwo.Image = convertedImage;
+            ApplyFilter((bmp, converted) =>
+            {
+                ImageFundamentals.WithDMA.RotateNinetyDegreeLeft(bmp, converted);
+                image = converted;
+            });
         }
 
-        private void actionToInvertRedAndBlueWithoutDMA(object sender, EventArgs e)
+        private void ActionToRotateNinetyDegreeRightWithDMA(object sender, EventArgs e)
         {
-            Bitmap convertedImage = new Bitmap(image);
-            imageBitmap = (Bitmap)image;
-            filters.invertRedToBlue_withoutDMA(imageBitmap, convertedImage);
-            image = convertedImage;
-            pictureBoxImageTwo.Image = convertedImage;
+            ApplyFilter((bmp, converted) =>
+            {
+                ImageFundamentals.WithDMA.RotateNinetyDegreeRight(bmp, converted);
+                image = converted;
+            });
         }
 
-        private void actionToInvertRedAndBlueWithDMA(object sender, EventArgs e)
+        private void ActionToInvertRedAndBlueWithDMA(object sender, EventArgs e)
         {
-            Bitmap convertedImage = new Bitmap(image);
-            imageBitmap = (Bitmap)image;
-            filters.invertRedToBlue_withDMA(imageBitmap, convertedImage);
-            image = convertedImage;
-            pictureBoxImageTwo.Image = convertedImage;
+            ApplyFilter(ImageFundamentals.WithDMA.InvertRedToBlue);
         }
     }
 }

@@ -3,7 +3,7 @@
 		<EnableDefaultCompileItems>false</EnableDefaultCompileItems>
 		<EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-		<OutputType>WinExe</OutputType>
+		<OutputType>Exe</OutputType>
 		<TargetFramework>net8.0-windows</TargetFramework>
 		<RootNamespace>image_processing</RootNamespace>
 		<Nullable>enable</Nullable>
@@ -27,12 +27,16 @@
 
 	<ItemGroup>
 		<Compile Include="filters.cs" />
+		<Compile Include="methods\image-fundamentals.cs" />
 		<Compile Include="main-form.cs">
 			<SubType>Form</SubType>
 		</Compile>
 		<Compile Include="main-form.designer.cs">
 			<DependentUpon>main-form.cs</DependentUpon>
 		</Compile>
+		<Compile Include="methods\image-highlight.cs" />
+		<Compile Include="methods\image-representation.cs" />
+		<Compile Include="methods\utils.cs" />
 		<Compile Include="Program.cs" />
 		<Compile Include="Properties\AssemblyInfo.cs" />
 
@@ -62,5 +66,9 @@
 
 	<ItemGroup>
 		<None Include="App.config" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="assets\images\bits-slicing\" />
 	</ItemGroup>
 </Project>

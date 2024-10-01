@@ -2,330 +2,244 @@
 {
     partial class MainForm
     {
-        /// <summary>
-        ///  Required designer variable.
-        /// </summary>
+        private PictureBox pictureBoxImageOne;
+        private PictureBox pictureBoxImageTwo;
+
+        private Button buttonOpenImage;
+        private Button buttonClearImage;
+        private Button buttonSaveImage;
+
+        private Button buttonFirstList;
+        private Button buttonSecondList;
+        private Button buttonThirdList;
+        private Button buttonFourthList;
+
+        private OpenFileDialog openFileDialog;
+        private OpenFileDialog saveFileDialog;
+
+        private Button buttonBack;
+
+        private Button[] buttonsWithoutDMA_FirstList;
+        private Button[] buttonsWithDMA_FirstList;
+
+        private Button[] buttonsWithoutDMA_SecondList;
+        private Button[] buttonsWithDMA_SecondList;
+
+        private Button[] buttonsWithoutDMA_ThirdList;
+        private Button[] buttonsWithDMA_ThirdList;
+
+        private Button[] buttonsWithoutDMA_FourthList;
+        private Button[] buttonsWithDMA_FourthList;
+
+        private GroupBox groupBoxMethodsWithoutDMA;
+        private GroupBox groupBoxMethodsWithDMA;
+
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        ///  Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             pictureBoxImageOne = new PictureBox();
             pictureBoxImageTwo = new PictureBox();
             buttonOpenImage = new Button();
             buttonClearImage = new Button();
+            buttonSaveImage = new Button();
             openFileDialog = new OpenFileDialog();
-            buttonConvertToGrayWithoutDMA = new Button();
-            buttonConvertToGrayWithDMA = new Button();
-            buttonConvertToNegativeWithDMA = new Button();
-            buttonConvertToNegativeWithoutDMA = new Button();
-            buttonMirrorVerticallyWithDMA = new Button();
-            buttonMirrorVerticallyWithoutDMA = new Button();
-            buttonMirrorHorizontallyWithDMA = new Button();
-            buttonMirrorHorizontallyWithoutDMA = new Button();
-            buttonConvertToBlackAndWhiteWithDMA = new Button();
-            buttonConvertToBlackAndWhiteWithoutDMA = new Button();
-            buttonRotateNinetyDegreeLeftWithDMA = new Button();
-            buttonRotateNinetyDegreeLeftWithoutDMA = new Button();
-            buttonRotateNinetyDegreeRightWithDMA = new Button();
-            buttonRotateNinetyDegreeRightWithoutDMA = new Button();
-            buttonInvertRedAndBlueWithDMA = new Button();
-            buttonInvertRedAndBlueWithoutDMA = new Button();
+
+            buttonFirstList = new Button();
+            buttonSecondList = new Button();
+            buttonThirdList = new Button();
+            buttonFourthList = new Button();
+
+            buttonBack = new Button();
+
+            groupBoxMethodsWithoutDMA = new GroupBox();
+            groupBoxMethodsWithDMA = new GroupBox();
+
+            buttonsWithoutDMA_FirstList = new Button[]
+            {
+                CreateButton("Luminância", 10, 20, ActionToConvertToGrayWithoutDMA),
+                CreateButton("Negativo", 10, 60, ActionToConvertToNegativeWithoutDMA),
+                CreateButton("Espelhar verticalmente", 10, 100, ActionToMirrorVerticallyWithoutDMA),
+                CreateButton("Espelhar horizontalmente", 10, 140, ActionToMirrorHorizontallyWithoutDMA),
+                CreateButton("Preto e Branco", 10, 180, ActionToConvertBlackAndWhiteWithoutDMA),
+                CreateButton("Rotacionar 90 graus a esquerda", 10, 220, ActionToRotateNinetyDegreeLeftWithoutDMA),
+                CreateButton("Rotacionar 90 graus a direita", 10, 260, ActionToRotateNinetyDegreeRightWithoutDMA),
+                CreateButton("Inverter vermelho e azul", 10, 300, ActionToInvertRedAndBlueWithoutDMA),
+            };
+
+            buttonsWithDMA_FirstList = new Button[]
+            {
+                CreateButton("Luminância", 10, 20, ActionToConvertToGrayWithDMA),
+                CreateButton("Negativo", 10, 60, ActionToConvertToNegativeWithDMA),
+                CreateButton("Espelhar verticalmente", 10, 100, ActionToMirrorVerticallyWithDMA),
+                CreateButton("Espelhar horizontalmente", 10, 140, ActionToMirrorHorizontallyWithDMA),
+                CreateButton("Preto e Branco", 10, 180, ActionToConvertBlackAndWhiteWithDMA),
+                CreateButton("Rotacionar 90 graus a esquerda", 10, 220, ActionToRotateNinetyDegreeLeftWithDMA),
+                CreateButton("Rotacionar 90 graus a direita", 10, 260, ActionToRotateNinetyDegreeRightWithDMA),
+                CreateButton("Inverter vermelho e azul", 10, 300, ActionToInvertRedAndBlueWithDMA),
+            };
+
+            buttonsWithoutDMA_SecondList = new Button[]
+            {
+                CreateButton("Conectividade 4", 10, 20, ActionToConnectivity4WithoutDMA),
+                CreateButton("Conectividade 8", 10, 60, ActionToConnectivity8WithoutDMA),
+                CreateButton("Reduzir pela metade", 10, 100, ActionToReduceByHalf),
+                CreateButton("Reduzir dinamico", 10, 140, ActionToReduceByDinamicValue),
+            };
+
+            buttonsWithDMA_SecondList = new Button[] { };
+
+            buttonsWithoutDMA_ThirdList = new Button[]
+            {
+                CreateButton("Fatiamento de Bits", 10, 20, ActionToBitPlaneSlicingWithoutDMA),
+                CreateButton("Equalizacao do Histograma", 10, 60 , ActionToHistogramEqualizationWithoutDMA),
+                CreateButton("Suavização Média de Vizinhança 5 x 5", 10, 100 , ActionToFilterSmoothingByAverageWithoutDMA),
+                CreateButton("Suavização Mediana 5 x 5", 10, 140, ActionToFilterSmoothingByMedianWithoutDMA),
+                CreateButton("Suavização K Vizinhos", 10, 180, ActionToFilterSmoothingByKNeighboursWithoutDMA),
+            };
+
+            buttonsWithDMA_ThirdList = new Button[] { };
+
+            buttonsWithoutDMA_FourthList = new Button[] { };
+
+            buttonsWithDMA_FourthList = new Button[] { };
+
             ((System.ComponentModel.ISupportInitialize)pictureBoxImageOne).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxImageTwo).BeginInit();
             SuspendLayout();
-            // 
-            // pictureBoxImageOne
-            // 
-            pictureBoxImageOne.BackColor = SystemColors.ControlLightLight;
-            pictureBoxImageOne.Location = new Point(6, 7);
-            pictureBoxImageOne.Margin = new Padding(4, 3, 4, 3);
-            pictureBoxImageOne.Name = "pictureBoxImageOne";
-            pictureBoxImageOne.Size = new Size(599, 355);
-            pictureBoxImageOne.TabIndex = 102;
-            pictureBoxImageOne.TabStop = false;
-            // 
-            // pictureBoxImageTwo
-            // 
-            pictureBoxImageTwo.BackColor = SystemColors.ControlLightLight;
-            pictureBoxImageTwo.Location = new Point(630, 7);
-            pictureBoxImageTwo.Margin = new Padding(4, 3, 4, 3);
-            pictureBoxImageTwo.Name = "pictureBoxImageTwo";
-            pictureBoxImageTwo.Size = new Size(599, 355);
-            pictureBoxImageTwo.TabIndex = 105;
-            pictureBoxImageTwo.TabStop = false;
-            // 
-            // buttonOpenImage
-            // 
-            buttonOpenImage.Location = new Point(9, 368);
-            buttonOpenImage.Margin = new Padding(4, 3, 4, 3);
-            buttonOpenImage.Name = "buttonOpenImage";
-            buttonOpenImage.Size = new Size(104, 27);
-            buttonOpenImage.TabIndex = 106;
-            buttonOpenImage.Text = "Abrir Imagem";
-            buttonOpenImage.UseVisualStyleBackColor = true;
-            buttonOpenImage.Click += actionToOpenImage;
-            // 
-            // buttonClearImage
-            // 
-            buttonClearImage.Location = new Point(9, 401);
-            buttonClearImage.Margin = new Padding(4, 3, 4, 3);
-            buttonClearImage.Name = "buttonClearImage";
-            buttonClearImage.Size = new Size(104, 27);
-            buttonClearImage.TabIndex = 107;
-            buttonClearImage.Text = "Limpar";
-            buttonClearImage.UseVisualStyleBackColor = true;
-            buttonClearImage.Click += actionToClearImage;
-            // 
-            // buttonConvertToGrayWithoutDMA
-            // 
-            buttonConvertToGrayWithoutDMA.Location = new Point(120, 368);
-            buttonConvertToGrayWithoutDMA.Margin = new Padding(4, 3, 4, 3);
-            buttonConvertToGrayWithoutDMA.Name = "buttonConvertToGrayWithoutDMA";
-            buttonConvertToGrayWithoutDMA.Size = new Size(185, 27);
-            buttonConvertToGrayWithoutDMA.TabIndex = 108;
-            buttonConvertToGrayWithoutDMA.Text = "Luminância sem DMA";
-            buttonConvertToGrayWithoutDMA.UseVisualStyleBackColor = true;
-            buttonConvertToGrayWithoutDMA.Click += actionToConvertToGrayWithoutDMA;
-            // 
-            // buttonConvertToGrayWithDMA
-            // 
-            buttonConvertToGrayWithDMA.Location = new Point(120, 401);
-            buttonConvertToGrayWithDMA.Margin = new Padding(4, 3, 4, 3);
-            buttonConvertToGrayWithDMA.Name = "buttonConvertToGrayWithDMA";
-            buttonConvertToGrayWithDMA.Size = new Size(185, 27);
-            buttonConvertToGrayWithDMA.TabIndex = 109;
-            buttonConvertToGrayWithDMA.Text = "Luminância com DMA";
-            buttonConvertToGrayWithDMA.UseVisualStyleBackColor = true;
-            buttonConvertToGrayWithDMA.Click += actionToConvertToGrayWithDMA;
-            // 
-            // buttonConvertToNegativeWithDMA
-            // 
-            buttonConvertToNegativeWithDMA.Location = new Point(120, 467);
-            buttonConvertToNegativeWithDMA.Margin = new Padding(4, 3, 4, 3);
-            buttonConvertToNegativeWithDMA.Name = "buttonConvertToNegativeWithDMA";
-            buttonConvertToNegativeWithDMA.Size = new Size(185, 26);
-            buttonConvertToNegativeWithDMA.TabIndex = 111;
-            buttonConvertToNegativeWithDMA.Text = "Negativo com DMA";
-            buttonConvertToNegativeWithDMA.UseVisualStyleBackColor = true;
-            buttonConvertToNegativeWithDMA.Click += actionToConvertToNegativeWithDMA;
-            // 
-            // buttonConvertToNegativeWithoutDMA
-            // 
-            buttonConvertToNegativeWithoutDMA.Location = new Point(120, 434);
-            buttonConvertToNegativeWithoutDMA.Margin = new Padding(4, 3, 4, 3);
-            buttonConvertToNegativeWithoutDMA.Name = "buttonConvertToNegativeWithoutDMA";
-            buttonConvertToNegativeWithoutDMA.Size = new Size(185, 26);
-            buttonConvertToNegativeWithoutDMA.TabIndex = 110;
-            buttonConvertToNegativeWithoutDMA.Text = "Negativo sem DMA";
-            buttonConvertToNegativeWithoutDMA.UseVisualStyleBackColor = true;
-            buttonConvertToNegativeWithoutDMA.Click += actionToConvertToNegativeWithoutDMA;
-            // 
-            // buttonMirrorVerticallyWithDMA
-            // 
-            buttonMirrorVerticallyWithDMA.Location = new Point(313, 401);
-            buttonMirrorVerticallyWithDMA.Margin = new Padding(4, 3, 4, 3);
-            buttonMirrorVerticallyWithDMA.Name = "buttonMirrorVerticallyWithDMA";
-            buttonMirrorVerticallyWithDMA.Size = new Size(233, 27);
-            buttonMirrorVerticallyWithDMA.TabIndex = 110;
-            buttonMirrorVerticallyWithDMA.Text = "Espelhar verticalmente com DMA";
-            buttonMirrorVerticallyWithDMA.UseVisualStyleBackColor = true;
-            buttonMirrorVerticallyWithDMA.Click += actionToMirrorVerticallyWithDMA;
-            // 
-            // buttonMirrorVerticallyWithoutDMA
-            // 
-            buttonMirrorVerticallyWithoutDMA.Location = new Point(313, 368);
-            buttonMirrorVerticallyWithoutDMA.Margin = new Padding(4, 3, 4, 3);
-            buttonMirrorVerticallyWithoutDMA.Name = "buttonMirrorVerticallyWithoutDMA";
-            buttonMirrorVerticallyWithoutDMA.Size = new Size(233, 27);
-            buttonMirrorVerticallyWithoutDMA.TabIndex = 110;
-            buttonMirrorVerticallyWithoutDMA.Text = "Espelhar verticalmente sem DMA";
-            buttonMirrorVerticallyWithoutDMA.UseVisualStyleBackColor = true;
-            buttonMirrorVerticallyWithoutDMA.Click += actionToMirrorVerticallyWithoutDMA;
-            // 
-            // buttonMirrorHorizontallyWithDMA
-            // 
-            buttonMirrorHorizontallyWithDMA.Location = new Point(313, 466);
-            buttonMirrorHorizontallyWithDMA.Margin = new Padding(4, 3, 4, 3);
-            buttonMirrorHorizontallyWithDMA.Name = "buttonMirrorHorizontallyWithDMA";
-            buttonMirrorHorizontallyWithDMA.Size = new Size(233, 27);
-            buttonMirrorHorizontallyWithDMA.TabIndex = 110;
-            buttonMirrorHorizontallyWithDMA.Text = "Espelhar horizontalmente com DMA";
-            buttonMirrorHorizontallyWithDMA.UseVisualStyleBackColor = true;
-            buttonMirrorHorizontallyWithDMA.Click += actionToMirrorHorizontallyWithDMA;
-            // 
-            // buttonMirrorHorizontallyWithoutDMA
-            // 
-            buttonMirrorHorizontallyWithoutDMA.Location = new Point(313, 433);
-            buttonMirrorHorizontallyWithoutDMA.Margin = new Padding(4, 3, 4, 3);
-            buttonMirrorHorizontallyWithoutDMA.Name = "buttonMirrorHorizontallyWithoutDMA";
-            buttonMirrorHorizontallyWithoutDMA.Size = new Size(233, 27);
-            buttonMirrorHorizontallyWithoutDMA.TabIndex = 110;
-            buttonMirrorHorizontallyWithoutDMA.Text = "Espelhar horizontalmente sem DMA";
-            buttonMirrorHorizontallyWithoutDMA.UseVisualStyleBackColor = true;
-            buttonMirrorHorizontallyWithoutDMA.Click += actionToMirrorHorizontallyWithoutDMA;
-            // 
-            // buttonConvertToBlackAndWhiteWithDMA
-            // 
-            buttonConvertToBlackAndWhiteWithDMA.Location = new Point(120, 533);
-            buttonConvertToBlackAndWhiteWithDMA.Margin = new Padding(4, 3, 4, 3);
-            buttonConvertToBlackAndWhiteWithDMA.Name = "buttonConvertToBlackAndWhiteWithDMA";
-            buttonConvertToBlackAndWhiteWithDMA.Size = new Size(185, 24);
-            buttonConvertToBlackAndWhiteWithDMA.TabIndex = 110;
-            buttonConvertToBlackAndWhiteWithDMA.Text = "Preto e Branco com DMA";
-            buttonConvertToBlackAndWhiteWithDMA.UseVisualStyleBackColor = true;
-            buttonConvertToBlackAndWhiteWithDMA.Click += actionToConvertBlackAndWhiteWithDMA;
-            // 
-            // buttonConvertToBlackAndWhiteWithoutDMA
-            // 
-            buttonConvertToBlackAndWhiteWithoutDMA.Location = new Point(120, 499);
-            buttonConvertToBlackAndWhiteWithoutDMA.Margin = new Padding(4, 3, 4, 3);
-            buttonConvertToBlackAndWhiteWithoutDMA.Name = "buttonConvertToBlackAndWhiteWithoutDMA";
-            buttonConvertToBlackAndWhiteWithoutDMA.Size = new Size(185, 27);
-            buttonConvertToBlackAndWhiteWithoutDMA.TabIndex = 110;
-            buttonConvertToBlackAndWhiteWithoutDMA.Text = "Preto e Branco sem DMA";
-            buttonConvertToBlackAndWhiteWithoutDMA.UseVisualStyleBackColor = true;
-            buttonConvertToBlackAndWhiteWithoutDMA.Click += actionToConvertBlackAndWhiteWithoutDMA;
-            // 
-            // buttonRotateNinetyDegreeLeftWithDMA
-            // 
-            buttonRotateNinetyDegreeLeftWithDMA.Location = new Point(555, 467);
-            buttonRotateNinetyDegreeLeftWithDMA.Margin = new Padding(4, 3, 4, 3);
-            buttonRotateNinetyDegreeLeftWithDMA.Name = "buttonRotateNinetyDegreeLeftWithDMA";
-            buttonRotateNinetyDegreeLeftWithDMA.Size = new Size(249, 26);
-            buttonRotateNinetyDegreeLeftWithDMA.TabIndex = 110;
-            buttonRotateNinetyDegreeLeftWithDMA.Text = "Rotacionar 90 graus a esquerda com DMA";
-            buttonRotateNinetyDegreeLeftWithDMA.UseVisualStyleBackColor = true;
-            buttonRotateNinetyDegreeLeftWithDMA.Click += actionToRotateNinetyDegreeLeftWithDMA;
-            // 
-            // buttonRotateNinetyDegreeLeftWithoutDMA
-            // 
-            buttonRotateNinetyDegreeLeftWithoutDMA.Location = new Point(555, 433);
-            buttonRotateNinetyDegreeLeftWithoutDMA.Margin = new Padding(4, 3, 4, 3);
-            buttonRotateNinetyDegreeLeftWithoutDMA.Name = "buttonRotateNinetyDegreeLeftWithoutDMA";
-            buttonRotateNinetyDegreeLeftWithoutDMA.Size = new Size(249, 27);
-            buttonRotateNinetyDegreeLeftWithoutDMA.TabIndex = 110;
-            buttonRotateNinetyDegreeLeftWithoutDMA.Text = "Rotacionar 90 graus a esquerda sem DMA";
-            buttonRotateNinetyDegreeLeftWithoutDMA.UseVisualStyleBackColor = true;
-            buttonRotateNinetyDegreeLeftWithoutDMA.Click += actionToRotateNinetyDegreeLeftWithoutDMA;
-            // 
-            // buttonRotateNinetyDegreeRightWithDMA
-            // 
-            buttonRotateNinetyDegreeRightWithDMA.Location = new Point(555, 401);
-            buttonRotateNinetyDegreeRightWithDMA.Margin = new Padding(4, 3, 4, 3);
-            buttonRotateNinetyDegreeRightWithDMA.Name = "buttonRotateNinetyDegreeRightWithDMA";
-            buttonRotateNinetyDegreeRightWithDMA.Size = new Size(249, 27);
-            buttonRotateNinetyDegreeRightWithDMA.TabIndex = 110;
-            buttonRotateNinetyDegreeRightWithDMA.Text = "Rotacionar 90 graus a direita com DMA";
-            buttonRotateNinetyDegreeRightWithDMA.UseVisualStyleBackColor = true;
-            buttonRotateNinetyDegreeRightWithDMA.Click += actionToRotateNinetyDegreeRightWithDMA;
-            // 
-            // buttonRotateNinetyDegreeRightWithoutDMA
-            // 
-            buttonRotateNinetyDegreeRightWithoutDMA.Location = new Point(555, 368);
-            buttonRotateNinetyDegreeRightWithoutDMA.Margin = new Padding(4, 3, 4, 3);
-            buttonRotateNinetyDegreeRightWithoutDMA.Name = "buttonRotateNinetyDegreeRightWithoutDMA";
-            buttonRotateNinetyDegreeRightWithoutDMA.Size = new Size(249, 27);
-            buttonRotateNinetyDegreeRightWithoutDMA.TabIndex = 110;
-            buttonRotateNinetyDegreeRightWithoutDMA.Text = "Rotacionar 90 graus a direita sem DMA";
-            buttonRotateNinetyDegreeRightWithoutDMA.UseVisualStyleBackColor = true;
-            buttonRotateNinetyDegreeRightWithoutDMA.Click += actionToRotateNinetyDegreeRightWithoutDMA;
-            // 
-            // buttonInvertRedAndBlueWithDMA
-            // 
-            buttonInvertRedAndBlueWithDMA.Location = new Point(313, 534);
-            buttonInvertRedAndBlueWithDMA.Margin = new Padding(4, 3, 4, 3);
-            buttonInvertRedAndBlueWithDMA.Name = "buttonInvertRedAndBlueWithDMA";
-            buttonInvertRedAndBlueWithDMA.Size = new Size(233, 23);
-            buttonInvertRedAndBlueWithDMA.TabIndex = 110;
-            buttonInvertRedAndBlueWithDMA.Text = "Inverter vermelho e azul com DMA";
-            buttonInvertRedAndBlueWithDMA.UseVisualStyleBackColor = true;
-            buttonInvertRedAndBlueWithDMA.Click += actionToInvertRedAndBlueWithDMA;
-            // 
-            // buttonInvertRedAndBlueWithoutDMA
-            // 
-            buttonInvertRedAndBlueWithoutDMA.Location = new Point(313, 499);
-            buttonInvertRedAndBlueWithoutDMA.Margin = new Padding(4, 3, 4, 3);
-            buttonInvertRedAndBlueWithoutDMA.Name = "buttonInvertRedAndBlueWithoutDMA";
-            buttonInvertRedAndBlueWithoutDMA.Size = new Size(233, 27);
-            buttonInvertRedAndBlueWithoutDMA.TabIndex = 110;
-            buttonInvertRedAndBlueWithoutDMA.Text = "Inverter vermelho e azul sem DMA";
-            buttonInvertRedAndBlueWithoutDMA.UseVisualStyleBackColor = true;
-            buttonInvertRedAndBlueWithoutDMA.Click += actionToInvertRedAndBlueWithoutDMA;
-            // 
-            // MainForm
-            // 
+
+            ConfigurePictureBox(pictureBoxImageOne, "pictureBoxImageOne", new Point(6, 7), new Size(599, 355));
+            ConfigurePictureBox(pictureBoxImageTwo, "pictureBoxImageTwo", new Point(630, 7), new Size(599, 355));
+
+            ConfigureButton(buttonOpenImage, "Abrir Imagem", new Point(9, 368), new Size(150, 30), ActionToOpenImage);
+            ConfigureButton(buttonClearImage, "Limpar Imagem", new Point(9, 410), new Size(150, 30), ActionToClearImage);
+            ConfigureButton(buttonSaveImage, "Salvar Imagem", new Point(9, 450), new Size(150, 30), ActionToSaveImage);
+
+            ConfigureButton(buttonFirstList, "Fundamentos de Imagens", new Point(170, 368), new Size(200, 30), ShowMethodButtonsFirstList);
+            ConfigureButton(buttonSecondList, "Representação de Imagens", new Point(170, 410), new Size(200, 30), ShowMethodButtonsSecondList);
+            ConfigureButton(buttonThirdList, "Realce de Imagens", new Point(170, 450), new Size(200, 30), ShowMethodButtonsThirdList);
+            ConfigureButton(buttonFourthList, "Segmentação", new Point(170, 490), new Size(200, 30), ShowMethodButtonsFourthList);
+
+            ConfigureButton(buttonBack, "Voltar", new Point(170, 530), new Size(200, 30), ShowMainButtons);
+
+            ConfigureGroupBox(groupBoxMethodsWithoutDMA, "Métodos sem DMA", new Point(381, 368), new Size(250, 400));
+            ConfigureGroupBox(groupBoxMethodsWithDMA, "Métodos com DMA", new Point(650, 368), new Size(250, 400));
+
+            groupBoxMethodsWithoutDMA.Visible = false;
+            groupBoxMethodsWithDMA.Visible = false;
+
+            Controls.Add(pictureBoxImageOne);
+            Controls.Add(pictureBoxImageTwo);
+            Controls.Add(buttonOpenImage);
+            Controls.Add(buttonClearImage);
+            Controls.Add(buttonSaveImage);
+            Controls.Add(buttonFirstList);
+            Controls.Add(buttonSecondList);
+            Controls.Add(buttonThirdList);
+            Controls.Add(buttonFourthList);
+            Controls.Add(buttonBack);
+            Controls.Add(groupBoxMethodsWithoutDMA);
+            Controls.Add(groupBoxMethodsWithDMA);
+
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1266, 595);
-            Controls.Add(buttonInvertRedAndBlueWithDMA);
-            Controls.Add(buttonInvertRedAndBlueWithoutDMA);
-            Controls.Add(buttonRotateNinetyDegreeRightWithoutDMA);
-            Controls.Add(buttonRotateNinetyDegreeRightWithDMA);
-            Controls.Add(buttonRotateNinetyDegreeLeftWithoutDMA);
-            Controls.Add(buttonRotateNinetyDegreeLeftWithDMA);
-            Controls.Add(buttonConvertToBlackAndWhiteWithDMA);
-            Controls.Add(buttonConvertToBlackAndWhiteWithoutDMA);
-            Controls.Add(buttonMirrorHorizontallyWithDMA);
-            Controls.Add(buttonMirrorHorizontallyWithoutDMA);
-            Controls.Add(buttonMirrorVerticallyWithoutDMA);
-            Controls.Add(buttonMirrorVerticallyWithDMA);
-            Controls.Add(buttonConvertToNegativeWithDMA);
-            Controls.Add(buttonConvertToNegativeWithoutDMA);
-            Controls.Add(buttonConvertToGrayWithDMA);
-            Controls.Add(buttonConvertToGrayWithoutDMA);
-            Controls.Add(buttonClearImage);
-            Controls.Add(buttonOpenImage);
-            Controls.Add(pictureBoxImageTwo);
-            Controls.Add(pictureBoxImageOne);
-            Margin = new Padding(4, 3, 4, 3);
+            ClientSize = new Size(1244, 800);
             Name = "MainForm";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Formulário Principal";
+            Text = "Processamento de Imagens";
+            ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBoxImageOne).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxImageTwo).EndInit();
-            ResumeLayout(false);
         }
 
-        #endregion
-        private PictureBox pictureBoxImageOne;
-        private PictureBox pictureBoxImageTwo;
-        private Button buttonOpenImage;
-        private Button buttonClearImage;
-        private OpenFileDialog openFileDialog;
-        private Button buttonConvertToGrayWithoutDMA;
-        private Button buttonConvertToGrayWithDMA;
-        private Button buttonConvertToNegativeWithDMA;
-        private Button buttonConvertToNegativeWithoutDMA;
-        private Button buttonMirrorVerticallyWithDMA;
-        private Button buttonMirrorVerticallyWithoutDMA;
-        private Button buttonMirrorHorizontallyWithDMA;
-        private Button buttonMirrorHorizontallyWithoutDMA;
-        private Button buttonConvertToBlackAndWhiteWithoutDMA; 
-        private Button buttonConvertToBlackAndWhiteWithDMA;
-        private Button buttonRotateNinetyDegreeLeftWithoutDMA; 
-        private Button buttonRotateNinetyDegreeLeftWithDMA; 
-        private Button buttonRotateNinetyDegreeRightWithoutDMA;
-        private Button buttonRotateNinetyDegreeRightWithDMA;
-        private Button buttonInvertRedAndBlueWithoutDMA;
-        private Button buttonInvertRedAndBlueWithDMA;
+        private Button CreateButton(string text, int x, int y, EventHandler clickEvent)
+        {
+            Button newButton = new Button
+            {
+                Text = text,
+                Location = new Point(x, y),
+                Size = new Size(230, 30),
+                UseVisualStyleBackColor = true,
+            };
+
+            newButton.Click += clickEvent;
+
+            return newButton;
+        }
+
+        private void ConfigurePictureBox(PictureBox pictureBox, string name, Point location, Size size)
+        {
+            pictureBox.BackColor = SystemColors.ControlLightLight;
+            pictureBox.Location = location;
+            pictureBox.Name = name;
+            pictureBox.Size = size;
+            pictureBox.TabIndex = 0;
+            pictureBox.TabStop = false;
+        }
+
+        private void ConfigureButton(Button button, string text, Point location, Size size, EventHandler clickEvent)
+        {
+            button.Text = text;
+            button.Location = location;
+            button.Size = size;
+            button.UseVisualStyleBackColor = true;
+            button.Click += clickEvent;
+        }
+
+        private void ConfigureGroupBox(GroupBox groupBox, string text, Point location, Size size)
+        {
+            groupBox.Text = text;
+            groupBox.Location = location;
+            groupBox.Size = size;
+            groupBox.TabStop = false;
+        }
+
+        private void ShowMethodButtonsFirstList(object sender, EventArgs e)
+        {
+            ShowMethods(buttonsWithoutDMA_FirstList, buttonsWithDMA_FirstList);
+        }
+
+        private void ShowMethodButtonsSecondList(object sender, EventArgs e)
+        {
+            ShowMethods(buttonsWithoutDMA_SecondList, buttonsWithDMA_SecondList);
+        }
+
+        private void ShowMethodButtonsThirdList(object sender, EventArgs e)
+        {
+            ShowMethods(buttonsWithoutDMA_ThirdList, buttonsWithDMA_ThirdList);
+        }
+
+        private void ShowMethodButtonsFourthList(object sender, EventArgs e)
+        {
+            ShowMethods(buttonsWithoutDMA_FourthList, buttonsWithDMA_FourthList);
+        }
+
+        private void ShowMainButtons(object sender, EventArgs e)
+        {
+            groupBoxMethodsWithoutDMA.Visible = false;
+            groupBoxMethodsWithDMA.Visible = false;
+        }
+
+        private void ShowMethods(Button[] withoutDMAButtons, Button[] withDMAButtons)
+        {
+            // Clear existing buttons
+            groupBoxMethodsWithoutDMA.Controls.Clear();
+            groupBoxMethodsWithDMA.Controls.Clear();
+
+            // Add buttons without DMA
+            foreach (Button button in withoutDMAButtons)
+            {
+                groupBoxMethodsWithoutDMA.Controls.Add(button);
+            }
+
+            // Add buttons with DMA
+            foreach (Button button in withDMAButtons)
+            {
+                groupBoxMethodsWithDMA.Controls.Add(button);
+            }
+
+            // Show the group boxes
+            groupBoxMethodsWithoutDMA.Visible = true;
+            groupBoxMethodsWithDMA.Visible = true;
+        }
     }
 }
