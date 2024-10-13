@@ -36,6 +36,7 @@
 		</Compile>
 		<Compile Include="methods\image-highlight.cs" />
 		<Compile Include="methods\image-representation.cs" />
+		<Compile Include="methods\mathematical-morphology.cs" />
 		<Compile Include="methods\utils.cs" />
 		<Compile Include="Program.cs" />
 		<Compile Include="Properties\AssemblyInfo.cs" />
